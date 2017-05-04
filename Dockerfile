@@ -4,4 +4,6 @@ MAINTAINER kmsbbb@163.com
 
 EXPOSE 27017 28017
 
-ENTRYPOINT ["bash", "/scripts/mongosetup.sh"]
+COPY ./scripts/mongosetup.sh /usr/local/bin
+
+ENTRYPOINT ["bash", "mongosetup.sh"]
