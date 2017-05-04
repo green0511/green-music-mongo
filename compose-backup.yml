@@ -39,9 +39,6 @@ services:
   mongo1:
     image: mongo:3.4
     hostname: mongo1
-    expose:
-    - '27017'
-    - '28017'
     links:
     - mongo2:mongo2
     - mongo3:mongo3
@@ -52,6 +49,9 @@ services:
     - rs
     - --rest
     - --httpinterface
+    expose:
+    - '27017'
+    - '28017'
     ports:
     - 30118:27018
     - 30117:27017

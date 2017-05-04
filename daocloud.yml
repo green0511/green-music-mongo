@@ -1,0 +1,12 @@
+version: "3.0"
+stages:
+- build-setup
+build-setup:
+  stage: build-setup
+  job_type: image_build
+  only:
+    branches:
+    - master
+  cache: true
+  dockerfile_path: /Dockerfile
+  build_dir: /
