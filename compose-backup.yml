@@ -17,7 +17,8 @@ services:
     - 30317:27017
     - 30318:27018
     volumes:
-    - /green-music-mongos/mongo1:/data
+    - /green-music-mongos/mongo1/configdb :/data/configdb
+    - /green-music-mongos/mongo1/db :/data/db 
   mongo2:
     image: mongo:3.4
     hostname: mongo2
@@ -35,7 +36,8 @@ services:
     - 30217:27017
     - 30218:27018
     volumes:
-    - /green-music-mongos/mongo2:/data
+    - /green-music-mongos/mongo2/configdb :/data/configdb
+    - /green-music-mongos/mongo2/db :/data/db 
   mongo1:
     image: mongo:3.4
     hostname: mongo1
@@ -56,6 +58,11 @@ services:
     - 30118:27018
     - 30117:27017
     volumes:
-    - /green-music-mongos/mongo3:/data
+    - /green-music-mongos/mongo3/configdb :/data/configdb
+    - /green-music-mongos/mongo3/db :/data/db 
   setup:
     image: daocloud.io/kmsbbb/green-music-mongo:latest
+    links:
+    - mongo1:mongo1
+    - mongo2:mongo2
+    - mongo3:mongo3
