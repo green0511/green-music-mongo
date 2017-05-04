@@ -40,6 +40,7 @@ mongo --host ${MONGODB1}:27017 <<EOF
     };
     rs.initiate(cfg, { force: true });
     rs.reconfig(cfg, { force: true });
+    rs.slaveOk();
     db.getMongo().setReadPref('nearest');
 EOF
 
