@@ -41,3 +41,4 @@ mongosetup:
     - ./scripts:/scripts
   restart: always
   entrypoint: [ "bash", "/scripts/mongosetup.sh" ]
+  
